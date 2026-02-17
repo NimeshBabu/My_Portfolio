@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { HTMLMotionProps, motion } from "motion/react"
-
 import { cn } from "@/lib/utils"
 
 interface CardStickyProps extends HTMLMotionProps<"div"> {
@@ -18,8 +17,12 @@ const ContainerScroll = React.forwardRef<
     return (
         <div
             ref={ref}
-            className={cn("relative w-full", className)}
-            style={{ perspective: "1000px", ...props.style }}
+            className={cn("relative w-full min-h-[200vh]", className)}
+            style={{
+                perspective: "1200px",
+                transformStyle: "preserve-3d",
+                ...props.style,
+            }}
             {...props}
         >
             {children}
@@ -32,7 +35,7 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
     (
         {
             index,
-            incrementY = 10,
+            incrementY = 24,
             incrementZ = 10,
             children,
             className,
@@ -41,7 +44,9 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
         },
         ref
     ) => {
-        const y = index * incrementY
+        const BASE_OFFSET = 112 // 112px = top-28 in Tailwind
+
+        const y = BASE_OFFSET + index * incrementY
         const z = index * incrementZ
 
         return (
@@ -50,8 +55,9 @@ const CardSticky = React.forwardRef<HTMLDivElement, CardStickyProps>(
                 layout="position"
                 style={{
                     top: y,
-                    z,
+                    transform: `translateZ(${z}px)`,
                     backfaceVisibility: "hidden",
+                    willChange: "transform",
                     ...style,
                 }}
                 className={cn("sticky", className)}
