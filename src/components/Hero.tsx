@@ -5,23 +5,52 @@ import WithBadge from "@/components/ui/WithBadge";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import CurvedDiamond from "@/components/ui/CurvedDiamond";
+const container = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2,
+            delayChildren: 0.3,
+        },
+    },
+};
 
+const item = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+        },
+    },
+};
 const Hero: React.FC = () => {
     return (
         <section className="relative flex flex-col items-center justify-center min-h-[60vh] pb-15 pt-20 sm:py-24 md:py-28 lg:pt-36 lg:pb-20 overflow-hidden">
+
             {/* Container */}
-            <div className="text-center px-6 relative z-10 w-full max-w-4xl">
+            <motion.div
+                variants={container}
+                initial="hidden"
+                animate="show"
+                className="text-center px-6 relative z-10 w-full max-w-4xl"
+            >
+
                 {/* Top Text */}
-                <p className="font-mono font-bold text-[23px] md:text-[44px] py-4 tracking-tighter leading-none font-inter-tight bg-clip-text text-transparent"
+
+                <motion.p variants={item} className="font-mono font-bold text-[23px] md:text-[44px] py-4 tracking-tighter leading-none font-inter-tight bg-clip-text text-transparent"
                     style={{
                         backgroundImage:
                             "linear-gradient(180deg, #ffffff, #5d5d5d)",
                     }}>
                     solving <br /> design puzzles
-                </p>
+                </motion.p>
 
                 {/* Main Heading Group */}
-                <div className="relative inline-block mt-4 md:mt-8">
+                <motion.div variants={item} className="relative inline-block mt-4 md:mt-8">
                     {/* Images with Floating Animation */}
 
                     {/* Left Image */}
@@ -60,7 +89,7 @@ const Hero: React.FC = () => {
 
 
 
- 
+
                     {/* WITH Badge */}
                     <div
                         className=" absolute top-9 left-8 -translate-x-1/2 -translate-y-1/2 rotate-[-20deg] scale-75 sm:top-10 sm:left-[10%] sm:rotate-[-25deg] sm:scale-80 md:top-16 md:left-[16%] md:rotate-[-30deg] md:scale-100 font-tanker -z-20 pointer-events-none "
@@ -71,12 +100,19 @@ const Hero: React.FC = () => {
 
 
                     {/* Main Text */}
-                    <h1
+                    <motion.h1
+                        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{
+                            duration: 1,
+                            delay: 0.4,
+                            ease: [0.22, 1, 0.36, 1],
+                        }}
                         className="text-[3.8rem] md:text-[8rem] font-normal leading-[0.9] tracking-normal uppercase font-tanker"
                     >
                         <span
                             className="bg-clip-text text-transparent bg-[rgb(232,203,192)]"
-                            
+
                         >
                             EMPATHY
                         </span>{" "}
@@ -105,22 +141,28 @@ const Hero: React.FC = () => {
                             EDGE
                         </span>
 
-                    </h1>
-                </div>
+                    </motion.h1>
+                </motion.div>
 
                 {/* Divider */}
-                <div className="mt-8 w-full max-w-4xl flex items-center justify-center gap-3 sm:gap-6 opacity-30 px-4 mx-auto">
+                <motion.div variants={item} className="mt-8 w-full max-w-4xl flex items-center justify-center gap-3 sm:gap-6 opacity-30 px-4 mx-auto">
                     <div className="h-[1.5px] sm:h-[2px] md:h-[4px] bg-gradient-to-l from-transparent via-gray-300 to-transparent w-full"></div>
-                    <div className="flex-shrink-0 scale-75 sm:scale-100">
+                    <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: 20,
+                            repeat: Infinity,
+                            ease: "linear",
+                        }} className="flex-shrink-0 scale-75 sm:scale-100">
                         <CurvedDiamond />
-                    </div>
+                    </motion.div>
                     <div className="h-[1.5px] sm:h-[2px] md:h-[4px] bg-gradient-to-l from-transparent via-gray-300 to-transparent w-full"></div>
-                </div>
+                </motion.div>
 
 
 
-            </div>
-        </section>
+            </motion.div>
+        </section >
     );
 };
 

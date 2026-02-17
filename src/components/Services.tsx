@@ -1,5 +1,5 @@
 "use client"
-
+import { motion } from "framer-motion"
 import { ContainerScroll, CardSticky } from "@/components/ui/Cards-stack"
 
 const SERVICES = [
@@ -35,6 +35,25 @@ const SERVICES = [
     },
 ]
 
+
+const containerVariants = {
+    hidden: {},
+    visible: {
+        transition: {
+            staggerChildren: 0.15,
+        },
+    },
+}
+
+const headingVariants = {
+    hidden: { opacity: 0, x: -40 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+}
+
+const paragraphVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
+}
 export default function ServicesSection() {
     return (
         <section className="py-15 sm:py-17 md:py-18 lg:py-20 px-6 md:px-8 ">
@@ -42,9 +61,13 @@ export default function ServicesSection() {
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 ">
 
                 {/* LEFT — YOUR STYLE HEADING */}
-                <div className="md:sticky md:top-32 md:h-fit">
+                <motion.div variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }} 
+                    className="md:sticky md:top-32 md:h-fit">
 
-                    <h2
+                    <motion.h2
                         className="
                             font-tanker
                             text-4xl sm:text-5xl md:text-6xl
@@ -56,37 +79,40 @@ export default function ServicesSection() {
                             backgroundImage:
                                 "linear-gradient(0deg, rgba(99,111,164,0.5) 0%, rgb(232,203,192) 80%)",
                         }}
+                        variants={headingVariants}
                     >
                         Services I Offer
-                    </h2>
+                    </motion.h2>
 
 
-                    <p className="
+                    <motion.p className="
                         font-space
                         text-gray-400
                         mt-6
                         max-w-md
                         text-base md:text-lg
                         tracking-wide
-                    ">
+                    "
+                    variants={paragraphVariants}
+                    >
                         I help transform ideas into modern, scalable, and high-performance
                         digital products through thoughtful design and clean development.
-                    </p>
+                    </motion.p>
 
-                </div>
+                </motion.div>
 
 
 
                 {/* RIGHT — Sticky cards */}
 
-                    <ContainerScroll className="space-y-6">
+                <ContainerScroll className="space-y-6">
 
-                        {SERVICES.map((service, index) => (
+                    {SERVICES.map((service, index) => (
 
-                            <CardSticky
-                                key={service.id}
-                                index={index + 1}
-                                className="
+                        <CardSticky
+                            key={service.id}
+                            index={index + 1}
+                            className="
                                 rounded-3xl
                                 border border-white/10
                                 bg-white/[0.04]
@@ -95,30 +121,30 @@ export default function ServicesSection() {
                                 hover:border-yellow-400/40
                                 transition-all duration-500
                             "
-                            >
+                        >
 
-                                <div className="flex items-center justify-between">
+                            <div className="flex items-center justify-between">
 
-                                    <h3 className="
+                                <h3 className="
                                     font-tanker
                                     text-2xl md:text-3xl
                                     tracking-wide
                                 ">
-                                        {service.title}
-                                    </h3>
+                                    {service.title}
+                                </h3>
 
-                                    <span className="
+                                <span className="
                                     font-space
                                     text-yellow-400
                                     text-lg
                                 ">
-                                        {String(index + 1).padStart(2, "0")}
-                                    </span>
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
 
-                                </div>
+                            </div>
 
 
-                                <p className="
+                            <p className="
                                 font-space
                                 text-gray-400
                                 mt-4
@@ -126,22 +152,22 @@ export default function ServicesSection() {
                                 leading-relaxed
                                 max-w-md
                             ">
-                                    {service.description}
-                                </p>
+                                {service.description}
+                            </p>
 
 
-                                {/* subtle glow */}
-                                <div className="
+                            {/* subtle glow */}
+                            <div className="
                                 absolute inset-0 opacity-0 hover:opacity-100
                                 transition duration-500
                                 bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%)]
                                 pointer-events-none
                             "/>
 
-                            </CardSticky>
-                        ))}
+                        </CardSticky>
+                    ))}
 
-                    </ContainerScroll>
+                </ContainerScroll>
 
             </div>
 
