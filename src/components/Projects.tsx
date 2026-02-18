@@ -8,7 +8,7 @@ const projects = [
         title: "Teacher Dashboard Redesign",
         impact: "Improved data clarity for 3,000+ institute users.",
         process: "UX Research · UI Design",
-        timeline: "2025 · 4 Weeks",
+        timeline: "2025",
         image:
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200",
         link: "/case-study/dashboard",
@@ -18,7 +18,7 @@ const projects = [
         title: "AI Learning Platform",
         impact: "Designed scalable interaction system for AI workflows.",
         process: "Product Strategy · Interaction Design",
-        timeline: "2025 · 6 Weeks",
+        timeline: "2025",
         image:
             "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200",
         link: "/case-study/ai-platform",
@@ -27,7 +27,7 @@ const projects = [
         title: "Analytics UX Overhaul",
         impact: "Reduced cognitive load through better hierarchy.",
         process: "UX Audit · Wireframing",
-        timeline: "2025 · 3 Weeks",
+        timeline: "2025",
         image:
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
         link: "/case-study/analytics",
@@ -36,7 +36,7 @@ const projects = [
         title: "SaaS Onboarding Flow",
         impact: "Increased completion rate with guided UX patterns.",
         process: "User Flows · Prototyping",
-        timeline: "2025 · 5 Weeks",
+        timeline: "2025",
         image:
             "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
         link: "/case-study/onboarding",
@@ -59,7 +59,7 @@ const reveal = {
 
 export default function BentoProjects() {
     return (
-        <section className="text-white py-15 sm:py-17 md:py-18 lg:py-20 px-6 md:px-8 w-full">
+        <section id="projects" className="text-white py-24 md:py-32 px-6 md:px-10 w-full">
 
             <div className="max-w-7xl mx-auto">
 
@@ -84,7 +84,9 @@ export default function BentoProjects() {
                             Selected Work
                         </h2>
 
-                        <p className="text-gray-400 mt-4 text-center md:text-left font-space text-[15px] md:text-[20px] max-w-md tracking-wide text-sm md:text-base">
+                        <p className="text-gray-400 mt-6 text-center md:text-left font-space max-w-md
+                        text-base md:text-lg
+                        tracking-wide">
                             A curated selection of design and development projects focused on usability, scalability, and crafting meaningful user experiences.
                         </p>
                     </motion.div>
@@ -132,88 +134,78 @@ export default function BentoProjects() {
 
 
                 {/* GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
+                {/* PROJECT GRID */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 mt-20">
 
-                    {projects.map((project, i) => {
+                    {projects.map((project, i) => (
+                        <motion.div
+                            key={i}
+                            custom={i}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={reveal}
+                            className="group"
+                        >
+                            <Link href={project.link}>
 
-                        const size =
-                            project.size === "large"
-                                ? "md:col-span-2 md:row-span-2"
-                                : project.size === "wide"
-                                    ? "md:col-span-3"
-                                    : ""
+                                <div className="space-y-6">
 
-                        return (
-                            <motion.div
-                                key={i}
-                                custom={i}
-                                initial="hidden"
-                                whileInView="visible"
-                                viewport={{ once: true }}
-                                variants={reveal}
-                                className={size}
-                            >
+                                    {/* Image */}
+                                    <div className="relative overflow-hidden rounded-3xl">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-[380px] md:h-[460px] object-cover transition duration-700 group-hover:scale-[1.02]"
+                                        />
+                                    </div>
 
-                                <Link href={project.link}>
+                                    {/* Bottom Meta Row */}
+                                    <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3">
 
-                                    <div className="
-                                        group relative h-full rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md hover:border-yellow-400/40 hover:shadow-[0_20px_80px_rgba(0,0,0,0.5)] hover:-translate-y-1 transition-all duration-500 cursor-pointer
-                                    ">
-
-                                        {/* IMAGE */}
-                                        <div className="absolute inset-0 overflow-hidden">
-
-                                            <img
-                                                src={project.image}
-                                                alt={project.title}
-                                                className="w-full h-full object-cover opacity-70 scale-100 group-hover:scale-110 transition duration-700
-                                                "
-                                            />
-
-                                            {/* gradient overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent
-                                            " />
-
-                                            {/* glow */}
-                                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_50%_120%,rgba(250,204,21,0.25),transparent_60%)]
-                                            " />
-
-                                        </div>
-
-
-                                        {/* CONTENT */}
-                                        <div className="relative h-full flex flex-col justify-end p-7">
-
-                                            <h3 className="font-tanker text-2xl md:text-3xl tracking-wide
-                                            ">
+                                        {/* Left Side */}
+                                        <div className="space-y-3">
+                                            <div className="md:hidden text-sm text-gray-500 font-space tracking-wide md:text-right space-y-1">
+                                                <div>{project.timeline}</div>
+                                            </div>
+                                            <h3 className="font-tanker text-3xl md:text-4xl tracking-normal">
                                                 {project.title}
                                             </h3>
 
 
-                                            <p className="font-space text-gray-300 mt-3 text-md max-w-sm
-                                            ">
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.process.split("·").map((item, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className="inline-block px-4 py-1 rounded-full bg-[#2F3132] text-[#999999] uppercase text-sm md:text-base font-medium font-space"
+                                                    >
+                                                        {item.trim()}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <p className="font-space text-gray-400 text-sm md:text-base leading-relaxed">
                                                 {project.impact}
                                             </p>
 
+                                        </div>
 
-                                            <div className=" mt-5 text-sm text-gray-400 font-space
-                                            ">
-                                                <p>{project.process}</p>
-                                                <p className="mt-1">
-                                                    {project.timeline}
-                                                </p>
-                                            </div>
-
+                                        {/* Right Side */}
+                                        <div className="hidden md:block text-sm text-gray-500 font-space tracking-wide md:text-right space-y-1">
+                                            <div>{project.timeline}</div>
                                         </div>
 
                                     </div>
 
-                                </Link>
 
-                            </motion.div>
-                        )
-                    })}
+                                </div>
+
+                            </Link>
+                        </motion.div>
+                    ))}
+
                 </div>
+
+
 
             </div>
 

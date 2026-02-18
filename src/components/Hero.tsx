@@ -29,14 +29,14 @@ const item = {
 };
 const Hero: React.FC = () => {
     return (
-        <section className="relative flex flex-col items-center justify-center min-h-[60vh] pb-15 pt-20 sm:py-24 md:py-28 lg:pt-36 lg:pb-20 overflow-hidden">
+        <section id="hero" className="relative flex flex-col items-center justify-center min-h-[60vh] pt-14 pb-16 md:pt-18 md:pb-20 px-6 md:px-10 overflow-hidden">
 
             {/* Container */}
             <motion.div
                 variants={container}
                 initial="hidden"
                 animate="show"
-                className="text-center px-6 relative z-10 w-full max-w-4xl"
+                className="text-center relative z-10 w-full max-w-4xl"
             >
 
                 {/* Top Text */}

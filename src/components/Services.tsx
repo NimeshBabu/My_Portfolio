@@ -56,7 +56,7 @@ const paragraphVariants = {
 }
 export default function ServicesSection() {
     return (
-        <section className="py-15 sm:py-17 md:py-18 lg:py-20 px-6 md:px-8 ">
+        <section id="services" className="py-24 md:py-32 px-6 md:px-10">
 
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 ">
 
@@ -72,6 +72,7 @@ export default function ServicesSection() {
                             font-tanker
                             text-4xl sm:text-5xl md:text-6xl
                             tracking-wide
+                            text-center md:text-left
                             bg-clip-text text-transparent
                             leading-tight
                         "
@@ -90,6 +91,7 @@ export default function ServicesSection() {
                         text-gray-400
                         mt-6
                         max-w-md
+                        text-center md:text-left
                         text-base md:text-lg
                         tracking-wide
                     "

@@ -6,7 +6,7 @@ import { SocialIcons } from "@/components/ui/SocialIcons"
 
 export default function ContactSection() {
     return (
-        <section className="pt-20 pb-10 md:py-12 px-6 md:px-8">
+        <section id="contact" className="pt-24 pb-12 md:pt-32 pb-12 px-6 md:px-10">
 
             <motion.div
 
