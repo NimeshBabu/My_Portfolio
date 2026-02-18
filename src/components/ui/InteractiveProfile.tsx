@@ -79,7 +79,7 @@ const InteractiveProfile: React.FC = () => {
                     ease: "easeInOut"
                 }}
                 style={{
-                    backgroundImage: "url('/Nimesh.jpg')", // Placeholder for /Nimesh.jpg
+                    backgroundImage: "url('/photo.jpg')", // Placeholder for /Nimesh.jpg
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
