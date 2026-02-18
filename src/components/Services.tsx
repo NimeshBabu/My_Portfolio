@@ -117,8 +117,8 @@ export default function ServicesSection() {
                             className="
                                 rounded-3xl
                                 border border-white/10
-                                bg-white/[0.04]
-                                backdrop-blur-xl
+                                bg-[#24232A]
+                                shadow-[0_12px_40px_rgba(0,0,0,0.35)]
                                 p-8 md:p-10
                                 hover:border-yellow-400/40
                                 transition-all duration-500
@@ -159,12 +159,12 @@ export default function ServicesSection() {
 
 
                             {/* subtle glow */}
-                            <div className="
-                                absolute inset-0 opacity-0 hover:opacity-100
+                            {/* <div className="
+                                relative inset-0 opacity-0 hover:opacity-100
                                 transition duration-500
                                 bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%)]
                                 pointer-events-none
-                            "/>
+                            "/> */}
 
                         </CardSticky>
                     ))}

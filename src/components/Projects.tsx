@@ -135,7 +135,7 @@ export default function BentoProjects() {
 
                 {/* GRID */}
                 {/* PROJECT GRID */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 mt-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 mt-20 ">
 
                     {projects.map((project, i) => (
                         <motion.div
@@ -145,30 +145,39 @@ export default function BentoProjects() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={reveal}
-                            className="group"
+                            className="group relative
+                                        bg-[#24232A]
+                                        border border-white/5
+                                        rounded-3xl
+                                        p-6 md:p-8
+                                        transition-all duration-500
+                                        hover:border-yellow-400/30
+                                        hover:-translate-y-2
+                                        hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
                         >
                             <Link href={project.link}>
 
                                 <div className="space-y-6">
 
                                     {/* Image */}
-                                    <div className="relative overflow-hidden rounded-3xl">
+                                    <div className="relative overflow-hidden rounded-2xl">
                                         <img
                                             src={project.image}
                                             alt={project.title}
-                                            className="w-full h-[380px] md:h-[460px] object-cover transition duration-700 group-hover:scale-[1.02]"
+                                            className="w-full h-[320px] md:h-[380px] object-cover transition duration-700 group-hover:scale-[1.03]"
                                         />
                                     </div>
+
 
                                     {/* Bottom Meta Row */}
                                     <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3">
 
                                         {/* Left Side */}
-                                        <div className="space-y-3">
-                                            <div className="md:hidden text-sm text-gray-500 font-space tracking-wide md:text-right space-y-1">
+                                        <div className="space-y-4 max-w-xl">
+                                            <div className="md:hidden text-sm text-gray-500 font-space tracking-wide">
                                                 <div>{project.timeline}</div>
                                             </div>
-                                            <h3 className="font-tanker text-3xl md:text-4xl tracking-normal">
+                                            <h3 className="font-tanker text-2xl md:text-3xl tracking-wide">
                                                 {project.title}
                                             </h3>
 
@@ -177,7 +186,7 @@ export default function BentoProjects() {
                                                 {project.process.split("·").map((item, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="inline-block px-4 py-1 rounded-full bg-[#2F3132] text-[#999999] uppercase text-sm md:text-base font-medium font-space"
+                                                        className="inline-block px-3 py-1 rounded-full bg-[#2F3132] text-[#999999] uppercase text-xs md:text-sm font-medium font-space"
                                                     >
                                                         {item.trim()}
                                                     </span>
@@ -190,7 +199,7 @@ export default function BentoProjects() {
                                         </div>
 
                                         {/* Right Side */}
-                                        <div className="hidden md:block text-sm text-gray-500 font-space tracking-wide md:text-right space-y-1">
+                                        <div className="hidden md:block text-sm text-gray-500 font-space tracking-wide">
                                             <div>{project.timeline}</div>
                                         </div>
 

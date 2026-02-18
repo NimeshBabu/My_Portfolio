@@ -90,10 +90,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spacegrotesk.variable} ${tanker.variable} antialiased `}
+        className={`${spacegrotesk.variable} ${tanker.variable} antialiased relative min-h-screen`}
+        style={{
+          backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="none"><g clip-path="url(%23a)"><path fill="%231C1B21" d="M0 0h150v150H0z"/><path stroke="%2319181D" stroke-width="10" d="M35 150V0m80 150V0M0 35h150M0 115h150"/></g><defs><clipPath id="a"><path fill="%23fff" d="M0 0h150v150H0z"/></clipPath></defs></svg>')`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "75px",
+          backgroundPosition: "top left",
+        }}
       >
+        
         {children}
       </body>
     </html>
   );
 }
+

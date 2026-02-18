@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion, AnimatePresence} from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -19,12 +19,7 @@ export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false);
 
   /* Scroll progress bar */
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+
 
   /* Scroll detection */
   useEffect(() => {
@@ -74,12 +69,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Scroll Progress */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-yellow-400 origin-left z-[60]"
-        style={{ scaleX }}
-      />
-
       {/* Floating Wrapper */}
       <motion.div
         initial={{ y: -80, opacity: 0 }}
@@ -189,8 +178,7 @@ export default function Navbar() {
               fixed top-28 left-1/2 -translate-x-1/2 z-40
               w-[90%] max-w-sm
               rounded-2xl
-              bg-black/90
-              backdrop-blur-xl
+              bg-[#24232A]
               border border-white/10
               shadow-2xl
               p-6

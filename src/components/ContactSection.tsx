@@ -6,37 +6,33 @@ import { SocialIcons } from "@/components/ui/SocialIcons"
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="pt-24 pb-12 md:pt-32 pb-12 px-6 md:px-10">
+        <section id="contact" className="pt-24 md:pt-32 pb-12 px-6 md:px-10">
 
             <motion.div
-
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                     duration: 0.8,
                     ease: "easeOut"
                 }}
-
-                className="
-                    max-w-7xl mx-auto
+                style={{ willChange: "transform, opacity" }}
+                className=" max-w-7xl mx-auto
                     relative overflow-hidden
                     rounded-[40px]
                     border border-white/10
-                    bg-white/[0.04]
-                    backdrop-blur-xl
+                    bg-[#24232A] 
                     p-8 sm:p-10 md:p-12 lg:p-14
                     hover:border-yellow-400/30
                     transition-all duration-500
                 "
             >
 
-                {/* Background glow */}
+                {/* Combined Background Glow */}
                 <div className="
-                    absolute inset-0 opacity-40
-                    bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%)]
-                    pointer-events-none
+                    absolute inset-0 pointer-events-none
+                    rounded-[40px]
+                    bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%),linear-gradient(to_b,rgba(255,255,255,0.06),transparent)]
                 "/>
-
 
                 {/* Content */}
                 <div className="
@@ -46,10 +42,8 @@ export default function ContactSection() {
                     gap-12 md:gap-16
                 ">
 
-
                     {/* LEFT */}
                     <div className="max-w-xl">
-
                         <h2
                             className="
                                 font-tanker 
@@ -65,7 +59,6 @@ export default function ContactSection() {
                             Have something in mind?
                         </h2>
 
-
                         <p className="
                             font-space
                             text-gray-400
@@ -77,12 +70,9 @@ export default function ContactSection() {
                             opportunities. Let's build something meaningful together.
                         </p>
 
-
                         {/* Button */}
                         <Link href="mailto:nikeshthapa2005@gmail.com">
-
                             <div className="relative inline-block group mt-8">
-
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="29"
@@ -117,50 +107,33 @@ export default function ContactSection() {
                                 ">
                                     Let's Connect
                                 </button>
-
                             </div>
-
                         </Link>
-
 
                         <p className="
                             font-space text-gray-500 text-md mt-6 tracking-wide
                         ">
                             Available for freelance and full-time roles.
                         </p>
-
                     </div>
-
-
 
                     {/* RIGHT */}
-                    <div className="flex flex-col items-center gap-6 md:absolute md:bottom-1 md:right-12
-                    ">
-
-                        <p className="font-tanker text-2xl md:text-3xl tracking-wide
-                            
-                        ">
+                    <div className="flex flex-col items-center gap-6 md:absolute md:bottom-1 md:right-12">
+                        <p className="font-tanker text-2xl md:text-3xl tracking-wide">
                             Get in touch
                         </p>
-
                         <SocialIcons />
-
                     </div>
-                    
-
                 </div>
 
-
-                {/* border highlight */}
+                {/* Optional subtle border highlight */}
                 <div className="
                     absolute inset-0 rounded-[40px]
                     bg-gradient-to-b from-white/[0.06] to-transparent
                     pointer-events-none
                 "/>
-                
 
             </motion.div>
-
         </section>
     )
 }
