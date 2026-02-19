@@ -16,41 +16,19 @@ export default function ContactSection() {
                     ease: "easeOut"
                 }}
                 style={{ willChange: "transform, opacity" }}
-                className=" max-w-7xl mx-auto
-                    relative overflow-hidden
-                    rounded-[40px]
-                    border border-white/10
-                    bg-[#24232A] 
-                    p-8 sm:p-10 md:p-12 lg:p-14
-                    hover:border-yellow-400/30
-                    transition-all duration-500
-                "
+                className=" max-w-7xl mx-auto relative overflow-hidden rounded-[40px] border border-white/10 bg-[#24232A]  p-8 sm:p-10 md:p-12 lg:p-14 hover:border-yellow-400/30 transition-all duration-500"
             >
 
                 {/* Combined Background Glow */}
-                <div className="
-                    absolute inset-0 pointer-events-none
-                    rounded-[40px]
-                    bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%),linear-gradient(to_b,rgba(255,255,255,0.06),transparent)]
-                "/>
+                <div className=" absolute inset-0 pointer-events-none rounded-[40px] bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%),linear-gradient(to_b,rgba(255,255,255,0.06),transparent)]"/>
 
                 {/* Content */}
-                <div className="
-                    relative z-10 text-center md:text-left
-                    flex flex-col md:flex-row
-                    md:items-center md:justify-between
-                    gap-12 md:gap-16
-                ">
+                <div className=" relative z-10 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-12 md:gap-16">
 
                     {/* LEFT */}
                     <div className="max-w-xl">
                         <h2
-                            className="
-                                font-tanker 
-                                text-4xl sm:text-5xl md:text-6xl
-                                tracking-wide
-                                bg-clip-text text-transparent
-                            "
+                            className=" font-tanker  text-4xl sm:text-5xl md:text-6xl tracking-wide bg-clip-text text-transparent"
                             style={{
                                 backgroundImage:
                                     "linear-gradient(0deg, rgba(99,111,164,0.5) 0%, rgb(232,203,192) 80%)",
@@ -59,13 +37,7 @@ export default function ContactSection() {
                             Have something in mind?
                         </h2>
 
-                        <p className="
-                            font-space
-                            text-gray-400
-                            mt-5
-                            text-base md:text-lg
-                            tracking-wide
-                        ">
+                        <p className=" font-space text-gray-400 mt-5 text-base md:text-lg tracking-wide">
                             I'm open to design, development, and collaboration
                             opportunities. Let's build something meaningful together.
                         </p>
@@ -78,13 +50,7 @@ export default function ContactSection() {
                                     width="29"
                                     height="27"
                                     fill="none"
-                                    className="
-                                        absolute -top-5 -right-6
-                                        pointer-events-none
-                                        group-hover:translate-x-1
-                                        group-hover:-translate-y-1
-                                        transition duration-300
-                                    "
+                                    className=" absolute -top-5 -right-6 pointer-events-none group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300"
                                 >
                                     <path
                                         stroke="#F9D34C"
@@ -94,25 +60,13 @@ export default function ContactSection() {
                                     />
                                 </svg>
 
-                                <button className="
-                                    px-8 py-3
-                                    rounded-2xl
-                                    bg-yellow-400
-                                    text-black
-                                    font-space font-medium
-                                    transition-all duration-300
-                                    hover:scale-105
-                                    hover:shadow-[0_10px_40px_rgba(250,204,21,0.35)]
-                                    active:scale-95
-                                ">
+                                <button className=" px-8 py-3 rounded-2xl bg-yellow-400 text-black font-space font-medium transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(250,204,21,0.35)] active:scale-95">
                                     Let's Connect
                                 </button>
                             </div>
                         </Link>
 
-                        <p className="
-                            font-space text-gray-500 text-md mt-6 tracking-wide
-                        ">
+                        <p className="font-space text-gray-500 text-md mt-6 tracking-wide">
                             Available for freelance and full-time roles.
                         </p>
                     </div>
@@ -127,11 +81,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Optional subtle border highlight */}
-                <div className="
-                    absolute inset-0 rounded-[40px]
-                    bg-gradient-to-b from-white/[0.06] to-transparent
-                    pointer-events-none
-                "/>
+                <div className="absolute inset-0 rounded-[40px] bg-gradient-to-b from-white/[0.06] to-transparent pointer-events-none"/>
 
             </motion.div>
         </section>

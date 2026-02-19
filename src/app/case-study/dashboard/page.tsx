@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export default function DashboardCaseStudy() {
     return (
-        <main className="bg-black text-white px-6 md:px-10 py-24">
+        <main className="text-white px-6 md:px-10 py-24">
 
             {/* HERO */}
             <section className="max-w-7xl mx-auto">

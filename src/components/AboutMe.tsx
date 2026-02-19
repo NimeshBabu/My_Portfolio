@@ -79,7 +79,7 @@ const AboutMe: React.FC = () => {
                         <br />
                         <br />
                         "When I’m not designing, you’ll probably find me listening to music,
-                        sipping chai, and sketching new ideas — because the best concepts often
+                        sipping chiya, and sketching new ideas — because the best concepts often
                         start between playlists and tea breaks."
                     </motion.p>
 
@@ -103,16 +103,7 @@ const AboutMe: React.FC = () => {
                             />
                         </svg>
                         <motion.button
-                            className="px-7 py-3
-                                rounded-2xl
-                                bg-yellow-400
-                                border border-white/10
-                                backdrop-blur-md
-                                hover:bg-yellow-400
-                                text-black
-                                transition-all duration-300
-                                font-space font-medium
-                                tracking-wide"
+                            className="px-7 py-3 rounded-2xl bg-yellow-400 border border-white/10 backdrop-blur-md hover:bg-yellow-400 text-black transition-all duration-300 font-space font-medium tracking-wide"
                             variants={buttonVariants}
                             initial="rest"
                             whileHover="hover"

@@ -68,14 +68,7 @@ export default function ServicesSection() {
                     className="md:sticky md:top-32 md:h-fit">
 
                     <motion.h2
-                        className="
-                            font-tanker
-                            text-4xl sm:text-5xl md:text-6xl
-                            tracking-wide
-                            text-center md:text-left
-                            bg-clip-text text-transparent
-                            leading-tight
-                        "
+                        className=" font-tanker text-4xl sm:text-5xl md:text-6xl tracking-wide text-center md:text-left bg-clip-text text-transparent leading-tight"
                         style={{
                             backgroundImage:
                                 "linear-gradient(0deg, rgba(99,111,164,0.5) 0%, rgb(232,203,192) 80%)",
@@ -86,15 +79,7 @@ export default function ServicesSection() {
                     </motion.h2>
 
 
-                    <motion.p className="
-                        font-space
-                        text-gray-400
-                        mt-6
-                        max-w-md
-                        text-center md:text-left
-                        text-base md:text-lg
-                        tracking-wide
-                    "
+                    <motion.p className=" font-space text-gray-400 mt-6 max-w-md text-center md:text-left text-base md:text-lg tracking-wide"
                     variants={paragraphVariants}
                     >
                         I help transform ideas into modern, scalable, and high-performance
@@ -114,57 +99,25 @@ export default function ServicesSection() {
                         <CardSticky
                             key={service.id}
                             index={index + 1}
-                            className="
-                                rounded-3xl
-                                border border-white/10
-                                bg-[#24232A]
-                                shadow-[0_12px_40px_rgba(0,0,0,0.35)]
-                                p-8 md:p-10
-                                hover:border-yellow-400/40
-                                transition-all duration-500
-                            "
+                            className=" rounded-3xl border border-white/10 bg-[#24232A] shadow-[0_12px_40px_rgba(0,0,0,0.35)] p-8 md:p-10 hover:border-yellow-400/40 transition-all duration-500"
                         >
 
                             <div className="flex items-center justify-between">
 
-                                <h3 className="
-                                    font-tanker
-                                    text-2xl md:text-3xl
-                                    tracking-wide
-                                ">
+                                <h3 className=" font-tanker text-2xl md:text-3xl tracking-wide">
                                     {service.title}
                                 </h3>
 
-                                <span className="
-                                    font-space
-                                    text-yellow-400
-                                    text-lg
-                                ">
+                                <span className=" font-space text-yellow-400 text-lg">
                                     {String(index + 1).padStart(2, "0")}
                                 </span>
 
                             </div>
 
 
-                            <p className="
-                                font-space
-                                text-gray-400
-                                mt-4
-                                text-base
-                                leading-relaxed
-                                max-w-md
-                            ">
+                            <p className=" font-space text-gray-400 mt-4 text-base leading-relaxed max-w-md">
                                 {service.description}
                             </p>
-
-
-                            {/* subtle glow */}
-                            {/* <div className="
-                                relative inset-0 opacity-0 hover:opacity-100
-                                transition duration-500
-                                bg-[radial-gradient(circle_at_80%_50%,rgba(250,204,21,0.15),transparent_60%)]
-                                pointer-events-none
-                            "/> */}
 
                         </CardSticky>
                     ))}

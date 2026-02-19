@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence} from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import LogoName from "@/components/ui/LogoName";
 
 const navLinks = [
   { name: "Home", href: "#hero" },
-  { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
   { name: "Services", href: "#services" },
 ];
 
@@ -18,15 +19,23 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  /* Scroll progress bar */
-
 
   /* Scroll detection */
   useEffect(() => {
     const handleScroll = () => {
+
       if (isScrolling) return; // ⛔ ignore during programmatic scroll
 
       setScrolled(window.scrollY > 50);
+
+      const contactSection = document.querySelector("#contact");
+      if (contactSection) {
+        const contactRect = contactSection.getBoundingClientRect();
+        if (contactRect.top <= 150 && contactRect.bottom >= 150) {
+          setActive("");
+          return;
+        }
+      }
 
       navLinks.forEach((link) => {
         const section = document.querySelector(link.href);
@@ -45,6 +54,7 @@ export default function Navbar() {
 
   /* Smooth scroll with offset */
   const scrollToSection = (id: string) => {
+
     const el = document.querySelector(id);
     if (!el) return;
 
@@ -79,26 +89,29 @@ export default function Navbar() {
         <motion.nav
           // animate={{ scale: scrolled ? 0.96 : 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
-          className="
-            flex items-center justify-between
-            px-6 py-3
-            rounded-full
-            bg-white/10
-            backdrop-blur-xl
-            border border-white/10
-            shadow-[0_12px_40px_rgba(0,0,0,0.35)]
-          "
+          className="flex items-center justify-between px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.35)]"
         >
           {/* LOGO */}
-          <button
+          <motion.button
             onClick={() => scrollToSection("#hero")}
-            className="flex items-center gap-1 group"
+            className="flex items-center group"
+            whileHover={{
+              y: [-3, 3, -3],
+              rotate: [-2, 2, -2],
+            }}
+            transition={{
+              duration: 0.6,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           >
-            <Image src="/logo.png" alt="Logo" width={38} height={38} />
-            <span className="font-space text-xl tracking-wider text-white transition">
+            
+            <LogoName className="w-8 h-8 text-yellow-400 group-hover:text-white transition-colors duration-300" />
+
+            <span className="font-space text-xl tracking-wider text-white transition-colors duration-300 group-hover:text-yellow-400">
               .B.T
             </span>
-          </button>
+          </motion.button>
 
           {/* CENTER NAV LINKS (Your Original Style) */}
           <div className="hidden md:flex items-center gap-6 relative">
@@ -131,18 +144,7 @@ export default function Navbar() {
           <motion.button
 
             onClick={() => scrollToSection("#contact")}
-            className="
-              hidden md:inline-flex relative
-              px-7 py-2
-              rounded-2xl
-              bg-yellow-400
-              text-black
-              font-space font-medium
-              tracking-wide
-              overflow-hidden
-              backdrop-blur-md
-              
-            "
+            className=" hidden md:inline-flex relative px-7 py-2 rounded-2xl bg-yellow-400 text-black font-space font-medium tracking-wide overflow-hidden backdrop-blur-md "
             whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(250,204,21,0.35)", transition: { duration: 0.3, ease: "easeOut" } }}
             whileTap={{ scale: 0.97 }}
           >

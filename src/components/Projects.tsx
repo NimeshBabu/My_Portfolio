@@ -57,7 +57,7 @@ const reveal = {
     }),
 }
 
-export default function BentoProjects() {
+export default function Projects() {
     return (
         <section id="projects" className="text-white py-24 md:py-32 px-6 md:px-10 w-full">
 
@@ -84,9 +84,7 @@ export default function BentoProjects() {
                             Selected Work
                         </h2>
 
-                        <p className="text-gray-400 mt-6 text-center md:text-left font-space max-w-md
-                        text-base md:text-lg
-                        tracking-wide">
+                        <p className="text-gray-400 mt-6 text-center md:text-left font-space max-w-md text-base md:text-lg tracking-wide">
                             A curated selection of design and development projects focused on usability, scalability, and crafting meaningful user experiences.
                         </p>
                     </motion.div>
@@ -145,15 +143,7 @@ export default function BentoProjects() {
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={reveal}
-                            className="group relative
-                                        bg-[#24232A]
-                                        border border-white/5
-                                        rounded-3xl
-                                        p-6 md:p-8
-                                        transition-all duration-500
-                                        hover:border-yellow-400/30
-                                        hover:-translate-y-2
-                                        hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+                            className="group relative bg-[#24232A] border border-white/5 rounded-3xl p-6 md:p-8 transition-all duration-500 hover:border-yellow-400/30 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
                         >
                             <Link href={project.link}>
 
@@ -197,17 +187,12 @@ export default function BentoProjects() {
                                             </p>
 
                                         </div>
-
                                         {/* Right Side */}
                                         <div className="hidden md:block text-sm text-gray-500 font-space tracking-wide">
                                             <div>{project.timeline}</div>
                                         </div>
-
                                     </div>
-
-
                                 </div>
-
                             </Link>
                         </motion.div>
                     ))}

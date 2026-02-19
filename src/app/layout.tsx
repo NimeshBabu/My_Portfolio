@@ -40,17 +40,17 @@ export const metadata: Metadata = {
   authors: [{ name: "Nimesh Babu Thapa" }],
   creator: "Nimesh Babu Thapa",
 
-  metadataBase: new URL("https://yourdomain.com"), // replace with your real domain
+  metadataBase: new URL("https://nimeshbabuthapa.com.np"), // replace with your real domain
 
   openGraph: {
     title: "Nimesh Babu Thapa | UI/UX Designer & Creative Developer",
     description:
       "Explore the portfolio of Nimesh Babu Thapa — blending UI/UX design with coding skills to create interactive, human-centered digital experiences and web projects.",
-    url: "https://yourdomain.com",
+    url: "https://nimeshbabuthapa.com.np",
     siteName: "Nimesh Babu Thapa Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Nimesh Babu Thapa - UI/UX Designer & Creative Developer Portfolio",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Nimesh Babu Thapa | UI/UX Designer & Creative Developer",
     description:
       "UI/UX Designer and Creative Developer building human-centered interfaces and interactive web projects.",
-    images: ["/og-image.png"],
+    images: ["/api/og"],
   },
 
   robots: {
@@ -74,10 +74,15 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/logo.svg", type: "image/svg+xml" },
+    ],
+    shortcut: ["/logo.svg"],
+    apple: [
+      { url: "/logo.svg" },
+    ],
   },
+
 
   category: "design",
 };
