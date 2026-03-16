@@ -1,80 +1,113 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import LogoName from "@/components/ui/LogoName";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
+  { name: "Home", href: "/#hero" },
+  { name: "About", href: "/#about" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Services", href: "/#services" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("#hero");
+  const [active, setActive] = useState("/#hero");
   const [scrolled, setScrolled] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
+  const pathname = usePathname();
 
   /* Scroll detection */
   useEffect(() => {
     const handleScroll = () => {
 
-      if (isScrolling) return; // ⛔ ignore during programmatic scroll
+      if (isScrolling) return;
 
       setScrolled(window.scrollY > 50);
 
-      const contactSection = document.querySelector("#contact");
-      if (contactSection) {
-        const contactRect = contactSection.getBoundingClientRect();
-        if (contactRect.top <= 150 && contactRect.bottom >= 150) {
+      const scrollPosition = window.innerHeight * 0.35;
+
+      /* CONTACT detection */
+      const contact = document.querySelector("#contact");
+
+      if (contact) {
+        const rect = contact.getBoundingClientRect();
+
+        if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
           setActive("");
           return;
         }
       }
 
-      navLinks.forEach((link) => {
-        const section = document.querySelector(link.href);
-        if (!section) return;
+      /* NAV SECTIONS detection */
+      for (const link of navLinks) {
+        const id = link.href.replace("/#", "");
+        const section = document.getElementById(id);
+
+        if (!section) continue;
 
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 150 && rect.bottom >= 150) {
+
+        if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
           setActive(link.href);
+          break;
         }
-      });
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isScrolling]);
 
-  /* Smooth scroll with offset */
-  const scrollToSection = (id: string) => {
+  /* Smooth scroll */
+  const scrollToSection = (path: string) => {
 
+    if (pathname !== "/") {
+      window.location.href = path;
+      return;
+    }
+
+    const id = path.replace("/", "");
     const el = document.querySelector(id);
+
     if (!el) return;
 
     const offset = 100;
+
     const y =
       el.getBoundingClientRect().top +
       window.pageYOffset -
       offset;
 
     setIsScrolling(true);
-    setActive(id); // Immediately highlight clicked link
+    setActive(path);
 
-    window.scrollTo({ top: y, behavior: "smooth" });
+    window.scrollTo({
+      top: y,
+      behavior: "smooth",
+    });
 
     setIsOpen(false);
 
-    // Re-enable scroll detection after animation
     setTimeout(() => {
       setIsScrolling(false);
-    }, 600); // match scroll duration
+    }, 700);
+  };
+
+  /* Scroll to very top */
+  const scrollToTop = () => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    setActive("/#hero");
   };
 
   return (
@@ -87,13 +120,13 @@ export default function Navbar() {
         className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl"
       >
         <motion.nav
-          // animate={{ scale: scrolled ? 0.96 : 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 25 }}
           className="flex items-center justify-between px-6 py-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/10 shadow-[0_12px_40px_rgba(0,0,0,0.35)]"
         >
+
           {/* LOGO */}
           <motion.button
-            onClick={() => scrollToSection("#hero")}
+            onClick={scrollToTop}
             className="flex items-center group"
             whileHover={{
               y: [-3, 3, -3],
@@ -105,29 +138,34 @@ export default function Navbar() {
               ease: "easeInOut",
             }}
           >
-            
+
             <LogoName className="w-8 h-8 text-yellow-400 group-hover:text-white transition-colors duration-300" />
 
             <span className="font-space text-xl tracking-wider text-white transition-colors duration-300 group-hover:text-yellow-400">
               .B.T
             </span>
+
           </motion.button>
 
-          {/* CENTER NAV LINKS (Your Original Style) */}
+          {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center gap-6 relative">
+
             {navLinks.map((link) => (
+
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className={`relative px-4 py-1.5 rounded-full font-space transition-all duration-300 ${active === link.href
-                  ? "text-black"
-                  : "text-gray-300 hover:text-white"
-                  }`}
+                className={`relative px-4 py-1.5 rounded-full font-space transition-all duration-300 ${
+                  active === link.href
+                    ? "text-black"
+                    : "text-gray-300 hover:text-white"
+                }`}
               >
+
                 {active === link.href && (
                   <motion.span
                     layoutId="floating-pill"
-                    transition={{ type: "tween", duration: 0.1 }}
+                    transition={{ type: "tween", duration: 0.2 }}
                     className="absolute inset-0 bg-yellow-400 rounded-full"
                   />
                 )}
@@ -135,27 +173,35 @@ export default function Navbar() {
                 <span className="relative z-10">
                   {link.name}
                 </span>
+
               </button>
+
             ))}
+
           </div>
 
-          {/* CONTACT BUTTON (Your Original Glow Style) */}
-
+          {/* CONTACT BUTTON */}
           <motion.button
-
-            onClick={() => scrollToSection("#contact")}
-            className=" hidden md:inline-flex relative px-7 py-2 rounded-2xl bg-yellow-400 text-black font-space font-medium tracking-wide overflow-hidden backdrop-blur-md "
-            whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(250,204,21,0.35)", transition: { duration: 0.3, ease: "easeOut" } }}
+            onClick={() => scrollToSection("/#contact")}
+            className="hidden md:inline-flex relative px-7 py-2 rounded-2xl bg-yellow-400 text-black font-space font-medium tracking-wide overflow-hidden backdrop-blur-md"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 10px 40px rgba(250,204,21,0.35)",
+              transition: { duration: 0.3, ease: "easeOut" },
+            }}
             whileTap={{ scale: 0.97 }}
           >
 
-            <span className="relative z-10">Contact Me </span>
+            <span className="relative z-10">
+              Contact Me
+            </span>
 
             <motion.div
               className="absolute inset-0 bg-yellow-300 opacity-30 blur-xl"
               animate={{ opacity: [0.2, 0.4, 0.2] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
+
           </motion.button>
 
           {/* MOBILE BUTTON */}
@@ -165,12 +211,15 @@ export default function Navbar() {
           >
             {isOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
+
         </motion.nav>
       </motion.div>
 
       {/* MOBILE MENU */}
       <AnimatePresence>
+
         {isOpen && (
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -187,7 +236,9 @@ export default function Navbar() {
               flex flex-col items-center gap-6
             "
           >
+
             {navLinks.map((link) => (
+
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
@@ -195,17 +246,21 @@ export default function Navbar() {
               >
                 {link.name}
               </button>
+
             ))}
 
             <motion.button
-              onClick={() => scrollToSection("#contact")}
+              onClick={() => scrollToSection("/#contact")}
               className="px-6 py-2 rounded-2xl bg-yellow-400 text-black font-space font-medium"
               whileHover={{ scale: 1.05 }}
             >
               Contact Me
             </motion.button>
+
           </motion.div>
+
         )}
+
       </AnimatePresence>
     </>
   );

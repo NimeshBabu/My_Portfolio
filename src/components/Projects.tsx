@@ -1,17 +1,17 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import Link from "next/link"
 
 const projects = [
     {
-        title: "Teacher Dashboard Redesign",
-        impact: "Improved data clarity for 3,000+ institute users.",
-        process: "UX Research · UI Design",
+        title: "GoCart",
+        impact: "A modern, full-stack e-commerce experience designed to delight shoppers and empower vendors.",
+        process: "E-Commerce · UI/UX Design",
         timeline: "2025",
         image:
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200",
-        link: "/case-study/dashboard",
+            "/Gocart.png",
+        link: "/case-study/gocart",
         size: "large",
     },
     {
@@ -44,7 +44,7 @@ const projects = [
     },
 ]
 
-const reveal = {
+const reveal: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
         opacity: 1,
