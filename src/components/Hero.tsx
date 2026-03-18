@@ -3,9 +3,9 @@
 import React from "react";
 import WithBadge from "@/components/ui/WithBadge";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import CurvedDiamond from "@/components/ui/CurvedDiamond";
-const container = {
+const container: Variants = {
     hidden: { opacity: 0 },
     show: {
         opacity: 1,
@@ -16,7 +16,7 @@ const container = {
     },
 };
 
-const item = {
+const item: Variants = {
     hidden: { opacity: 0, y: 40 },
     show: {
         opacity: 1,

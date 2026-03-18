@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect, useRef, useCallback } from "react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 // ─── SKILLS DATA ──────────────────────────────────────────────────────────────
 interface Skill {
@@ -32,7 +32,7 @@ const SPEED_HOVER = 2     // °/s  — slowed on hover
 
 
 // ─── REVEAL ───────────────────────────────────────────────────────────────────
-const reveal = {
+const reveal: Variants = {
     hidden: { opacity: 0, y: 32 },
     visible: (i: number) => ({
         opacity: 1, y: 0,
@@ -88,6 +88,8 @@ export default function Skills() {
         window.addEventListener("resize", update)
         return () => window.removeEventListener("resize", update)
     }, [])
+
+
     // ── Animation loop ────────────────────────────────────────────────────────
     const tick = useCallback((ts: number) => {
         if (!isInteracting.current) {

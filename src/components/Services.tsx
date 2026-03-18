@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import { ContainerScroll, CardSticky } from "@/components/ui/Cards-stack"
 
 const SERVICES = [
@@ -36,7 +36,7 @@ const SERVICES = [
 ]
 
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: {},
     visible: {
         transition: {
@@ -45,12 +45,12 @@ const containerVariants = {
     },
 }
 
-const headingVariants = {
+const headingVariants: Variants = {
     hidden: { opacity: 0, x: -40 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
 }
 
-const paragraphVariants = {
+const paragraphVariants: Variants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut", delay: 0.2 } },
 }

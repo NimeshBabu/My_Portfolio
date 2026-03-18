@@ -1,10 +1,10 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import HelloCursor from "@/components/ui/HelloCursor";
 import InteractiveProfile from "@/components/ui/InteractiveProfile";
 
-const containerVariants = {
+const containerVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
         opacity: 1,
@@ -13,12 +13,12 @@ const containerVariants = {
     },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
     rest: { scale: 1, boxShadow: "0 0 0 rgba(0,0,0,0)" },
     hover: {
         scale: 1.05,
