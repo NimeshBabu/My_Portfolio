@@ -45,7 +45,7 @@ const InteractiveProfile: React.FC = () => {
                     alt="Noodles"
                     width={192}
                     height={192}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain "
 
                 />
             </motion.div>

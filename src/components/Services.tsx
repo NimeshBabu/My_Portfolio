@@ -56,7 +56,7 @@ const paragraphVariants = {
 }
 export default function ServicesSection() {
     return (
-        <section id="services" className="py-24 md:py-32 px-6 md:px-10">
+        <section id="services" className="py-16 md:py-18 px-6 md:px-10">
 
             <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 ">
 
@@ -79,7 +79,7 @@ export default function ServicesSection() {
                     </motion.h2>
 
 
-                    <motion.p className=" font-space text-gray-400 mt-6 max-w-md text-center md:text-left text-base md:text-lg tracking-wide"
+                    <motion.p className=" font-space text-gray-400 mt-6 md:max-w-md text-center md:text-left text-base md:text-lg tracking-wide"
                     variants={paragraphVariants}
                     >
                         I help transform ideas into modern, scalable, and high-performance

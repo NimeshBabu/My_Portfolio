@@ -7,36 +7,36 @@ import LogoName from "@/components/ui/LogoName";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { name: "Home", href: "/#hero" },
-  { name: "About", href: "/#about" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Services", href: "/#services" },
+  { name: "Home", id: "hero" },
+  { name: "About", id: "about" },
+  { name: "Projects", id: "projects" },
+  { name: "Services", id: "services" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState("/#hero");
+  const [active, setActive] = useState("hero");
   const [scrolled, setScrolled] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   /* Scroll detection */
   useEffect(() => {
     const handleScroll = () => {
-
       if (isScrolling) return;
-
       setScrolled(window.scrollY > 50);
-
+      if (!isHome) {
+        setActive("");
+        return;
+      }
       const scrollPosition = window.innerHeight * 0.35;
 
       /* CONTACT detection */
-      const contact = document.querySelector("#contact");
-
+      const contact = document.getElementById("contact");
       if (contact) {
         const rect = contact.getBoundingClientRect();
-
         if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
           setActive("");
           return;
@@ -45,15 +45,12 @@ export default function Navbar() {
 
       /* NAV SECTIONS detection */
       for (const link of navLinks) {
-        const id = link.href.replace("/#", "");
+        const id = link.id;
         const section = document.getElementById(id);
-
         if (!section) continue;
-
         const rect = section.getBoundingClientRect();
-
         if (rect.top <= scrollPosition && rect.bottom >= scrollPosition) {
-          setActive(link.href);
+          setActive(link.id);
           break;
         }
       }
@@ -62,19 +59,42 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isScrolling]);
+  }, [isScrolling, isHome]);
+
+  useEffect(() => {
+    const target = sessionStorage.getItem("scrollTarget");
+    if (target) {
+      const el = document.getElementById(target);
+
+      if (el) {
+        const offset = 100;
+
+        const y =
+          el.getBoundingClientRect().top +
+          window.pageYOffset -
+          offset;
+
+        window.scrollTo({
+          top: y,
+          behavior: "smooth",
+        });
+      }
+
+      sessionStorage.removeItem("scrollTarget"); // clean up
+    }
+  }, []);
+
 
   /* Smooth scroll */
-  const scrollToSection = (path: string) => {
+  const scrollToSection = (id: string) => {
 
     if (pathname !== "/") {
-      window.location.href = path;
+      sessionStorage.setItem("scrollTarget", id); // store target
+      window.location.href = "/"; // go home WITHOUT #
       return;
     }
 
-    const id = path.replace("/", "");
-    const el = document.querySelector(id);
-
+    const el = document.getElementById(id);
     if (!el) return;
 
     const offset = 100;
@@ -85,7 +105,7 @@ export default function Navbar() {
       offset;
 
     setIsScrolling(true);
-    setActive(path);
+    setActive(id);
 
     window.scrollTo({
       top: y,
@@ -101,15 +121,18 @@ export default function Navbar() {
 
   /* Scroll to very top */
   const scrollToTop = () => {
+    if (!isHome) {
+      window.location.href = "/";
+      return;
+    }
 
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
 
-    setActive("/#hero");
+    setActive("hero");
   };
-
   return (
     <>
       {/* Floating Wrapper */}
@@ -148,24 +171,23 @@ export default function Navbar() {
           </motion.button>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-6 relative">
+          <div className="hidden md:flex items-center gap-6" style={{ position: "relative" }}>
 
             {navLinks.map((link) => (
 
               <button
                 key={link.name}
-                onClick={() => scrollToSection(link.href)}
-                className={`relative px-4 py-1.5 rounded-full font-space transition-all duration-300 ${
-                  active === link.href
-                    ? "text-black"
-                    : "text-gray-300 hover:text-white"
-                }`}
+                onClick={() => scrollToSection(link.id)}
+                className={`relative px-4 py-1.5 rounded-full font-space transition-all duration-300 ${active === link.id
+                  ? "text-black"
+                  : "text-gray-300 hover:text-white"
+                  }`}
               >
 
-                {active === link.href && (
+                {active === link.id && (
                   <motion.span
                     layoutId="floating-pill"
-                    transition={{ type: "tween", duration: 0.2 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 25 }}
                     className="absolute inset-0 bg-yellow-400 rounded-full"
                   />
                 )}
@@ -182,7 +204,7 @@ export default function Navbar() {
 
           {/* CONTACT BUTTON */}
           <motion.button
-            onClick={() => scrollToSection("/#contact")}
+            onClick={() => scrollToSection("contact")}
             className="hidden md:inline-flex relative px-7 py-2 rounded-2xl bg-yellow-400 text-black font-space font-medium tracking-wide overflow-hidden backdrop-blur-md"
             whileHover={{
               scale: 1.05,
@@ -241,7 +263,7 @@ export default function Navbar() {
 
               <button
                 key={link.name}
-                onClick={() => scrollToSection(link.href)}
+                onClick={() => scrollToSection(link.id)}
                 className="font-space text-gray-300 hover:text-yellow-400 text-lg transition"
               >
                 {link.name}

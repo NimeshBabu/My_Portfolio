@@ -6,7 +6,7 @@ import { SocialIcons } from "@/components/ui/SocialIcons"
 
 export default function ContactSection() {
     return (
-        <section id="contact" className="pt-24 md:pt-32 pb-12 px-6 md:px-10">
+        <section id="contact" className="pt-16 md:pt-16 pb-12 px-6 md:px-10">
 
             <motion.div
                 initial={{ opacity: 0, y: 40 }}

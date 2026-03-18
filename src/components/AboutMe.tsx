@@ -29,7 +29,7 @@ const buttonVariants = {
 
 const AboutMe: React.FC = () => {
     return (
-        <section id="about" className="relative flex justify-center py-24 md:py-32 px-6 md:px-10 w-full ">
+        <section id="about" className="relative flex justify-center py-16 md:py-18 px-6 md:px-10 w-full ">
             <motion.div
                 className="flex flex-col md:flex-row items-center gap-14 md:gap-24"
                 variants={containerVariants}
@@ -71,11 +71,10 @@ const AboutMe: React.FC = () => {
                     >
                         an aspiring{" "}
                         <span className="text-white">UI/UX Designer</span>{" "}
-                        passionate about turning ideas into thoughtful, human-centered digital experiences.
-                        Combining design thinking with a growing foundation in web technologies, I enjoy crafting interfaces and interactive experiences that feel intuitive and meaningful.
+                        passionate about creating intuitive, human-centered digital experiences. I combine design thinking with web development to build interfaces that are both meaningful and functional.
                         <br />
                         <br />
-                        Beyond design, I also love coding — building projects and experimenting with web development to bring ideas to life. Whether it’s a prototype, a college project, or an interactive UI component, I enjoy the process of turning concepts into functional experiences.
+                        Beyond design, I enjoy coding and building projects that turn ideas into real, interactive experiences.
                         <br />
                         <br />
                         "When I’m not designing, you’ll probably find me listening to music,

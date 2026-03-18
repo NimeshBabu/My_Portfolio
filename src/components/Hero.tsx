@@ -29,7 +29,7 @@ const item = {
 };
 const Hero: React.FC = () => {
     return (
-        <section id="hero" className="relative flex flex-col items-center justify-center min-h-[60vh] pt-14 pb-16 md:pt-18 md:pb-20 px-6 md:px-10 overflow-hidden">
+        <section id="hero" className="relative flex flex-col items-center justify-center min-h-[60vh] pt-14 pb-16 md:pt-18 md:pb-16 px-6 md:px-10 overflow-hidden">
 
             {/* Container */}
             <motion.div

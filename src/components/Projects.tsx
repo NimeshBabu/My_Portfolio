@@ -59,7 +59,7 @@ const reveal: Variants = {
 
 export default function Projects() {
     return (
-        <section id="projects" className="text-white py-24 md:py-32 px-6 md:px-10 w-full">
+        <section id="projects" className="text-white py-16 md:py-18 px-6 md:px-10 w-full">
 
             <div className="max-w-7xl mx-auto">
 
@@ -84,7 +84,7 @@ export default function Projects() {
                             Selected Work
                         </h2>
 
-                        <p className="text-gray-400 mt-6 text-center md:text-left font-space max-w-md text-base md:text-lg tracking-wide">
+                        <p className="text-gray-400 mt-6 text-center md:text-left font-space md:max-w-md text-base md:text-lg tracking-wide">
                             A curated selection of design and development projects focused on usability, scalability, and crafting meaningful user experiences.
                         </p>
                     </motion.div>
