@@ -57,6 +57,12 @@ export default function Skills() {
     const dragStartRot = useRef(0)
     const isHoveredRef = useRef(false)
     const [hoveredSkill, setHoveredSkill] = useState<string | null>(null)
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     // ── Responsive radius ─────────────────────────────────────────────────────
     useEffect(() => {
         const update = () => {
@@ -133,8 +139,10 @@ export default function Skills() {
 
     // ── Container height = radius + top padding so only top half shows ────────
     const containerH = radius + 100   // show slightly more than the top half
-
+    
+    if (!mounted) return null;
     return (
+        
         <section id="skills" className="py-16 md:py-18 px-6 md:px-10 w-full overflow-hidden">
 
             {/* ── HEADER ───────────────────────────────────────────────── */}
@@ -186,13 +194,13 @@ export default function Skills() {
                 <style>{`
                     #skills-orbit { cursor: ${isDragging ? "grabbing" : "grab"}; }
                 `}</style>
-                
+
 
                 {/* Orbit ring */}
                 <div
                     className="absolute left-1/2 pointer-events-none"
                     style={{
-                        top: containerH,
+                        top: `${containerH}px`,
                         width: radius * 2,
                         height: radius * 2,
                         marginLeft: -radius,
@@ -224,7 +232,7 @@ export default function Skills() {
                             className="absolute pointer-events-auto"
                             style={{
                                 left: "50%",
-                                top: containerH,
+                                top: `${containerH}px`,
                                 width: cardSize,
                                 height: cardSize,
                                 marginLeft: -(cardSize / 2),

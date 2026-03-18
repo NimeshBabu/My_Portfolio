@@ -12,7 +12,7 @@ const projects = [
         image:
             "/Gocart.png",
         link: "/case-study/gocart",
-        size: "large",
+        
     },
     {
         title: "AI Learning Platform",
@@ -33,14 +33,13 @@ const projects = [
         link: "/case-study/analytics",
     },
     {
-        title: "SaaS Onboarding Flow",
+        title: "Color Harmony Generator",
         impact: "Increased completion rate with guided UX patterns.",
         process: "User Flows · Prototyping",
         timeline: "2025",
         image:
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200",
-        link: "/case-study/onboarding",
-        size: "wide",
+            "/ColorHarmony.png",
+        link: "/case-study/colorharmony",
     },
 ]
 
