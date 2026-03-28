@@ -28,14 +28,20 @@ const buttonVariants: Variants = {
 };
 
 const AboutMe: React.FC = () => {
+    const [isMobile, setIsMobile] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
+
     return (
         <section id="about" className="relative flex justify-center py-16 md:py-18 px-6 md:px-10 w-full ">
             <motion.div
                 className="flex flex-col md:flex-row items-center gap-14 md:gap-24"
                 variants={containerVariants}
-                initial="hidden"
+                initial={isMobile ? "visible" : "hidden"}
                 whileInView="visible" // ✅ Animates when in viewport
-                viewport={{ once: true, amount: 0.3 }} // ✅ Trigger once when 30% visible
+                viewport={{ once: true, amount: 0.2 }} // ✅ Trigger once when 20% visible
             >
                 {/* Image */}
                 <motion.div
@@ -83,33 +89,29 @@ const AboutMe: React.FC = () => {
                     </motion.p>
 
                     {/* Resume Button */}
-                    <motion.div
-                        className="relative inline-block group mt-10"
-                        variants={itemVariants}
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="29"
-                            height="27"
-                            fill="none"
-                            className="absolute -top-5 -right-6 pointer-events-none"
-                        >
-                            <path
-                                stroke="#F9D34C"
-                                strokeLinecap="round"
-                                strokeWidth="3"
-                                d="M9.06 17.3c.084-1.992 3.262-3.654 4.461-4.963a145.227 145.227 0 0 1 5.708-5.896c1.038-1.012 2.874-2.345 3.018-3.823m-8.392 22.144c4.297-.43 8.438-1.897 12.804-1.897M2 2v9.958"
-                            />
-                        </svg>
-                        <motion.button
-                            className="px-7 py-3 rounded-2xl bg-yellow-400 border border-white/10 backdrop-blur-md hover:bg-yellow-400 text-black transition-all duration-300 font-space font-medium tracking-wide"
-                            variants={buttonVariants}
-                            initial="rest"
-                            whileHover="hover"
-                            animate="rest"
-                        >
-                            View Resume
-                        </motion.button>
+                    <motion.div variants={itemVariants}>
+                        <a href="/NimeshBabuThapa.pdf" target="_blank" rel="noopener noreferrer">
+                            <div className="relative inline-block group mt-8">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="29"
+                                    height="27"
+                                    fill="none"
+                                    className=" absolute -top-5 -right-6 pointer-events-none group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300"
+                                >
+                                    <path
+                                        stroke="#F9D34C"
+                                        strokeLinecap="round"
+                                        strokeWidth="3"
+                                        d="M9.06 17.3c.084-1.992 3.262-3.654 4.461-4.963a145.227 145.227 0 0 1 5.708-5.896c1.038-1.012 2.874-2.345 3.018-3.823m-8.392 22.144c4.297-.43 8.438-1.897 12.804-1.897M2 2v9.958"
+                                    />
+                                </svg>
+
+                                <button type="button" className=" px-8 py-3 rounded-2xl bg-yellow-400 text-black font-space font-medium transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(250,204,21,0.35)] active:scale-95">
+                                    View Resume
+                                </button>
+                            </div>
+                        </a>
                     </motion.div>
                 </motion.div>
             </motion.div>

@@ -6,22 +6,21 @@ import Link from "next/link"
 const projects = [
     {
         title: "GoCart",
-        impact: "A modern, full-stack e-commerce experience designed to delight shoppers and empower vendors.",
+        impact: "Scalable multi-vendor platform featuring frictionless checkout and premium layouts.",
         process: "E-Commerce · UI/UX Design",
         timeline: "2025",
         image:
             "/Gocart.png",
         link: "/case-study/gocart",
-        
     },
     {
-        title: "AI Learning Platform",
-        impact: "Designed scalable interaction system for AI workflows.",
+        title: "Nexora Biopharma",
+        impact: "Reduced user search time by 45% with intelligent rendering and clean architecture.",
         process: "Product Strategy · Interaction Design",
         timeline: "2025",
         image:
-            "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200",
-        link: "/case-study/ai-platform",
+            "/Nexorabiopharma.png",
+        link: "/case-study/Nexorabiopharma",
     },
     {
         title: "Analytics UX Overhaul",
@@ -34,7 +33,7 @@ const projects = [
     },
     {
         title: "Color Harmony Generator",
-        impact: "Increased completion rate with guided UX patterns.",
+        impact: "Fast, elegant app providing precise palettes using local geometric logic.",
         process: "User Flows · Prototyping",
         timeline: "2025",
         image:
