@@ -74,13 +74,13 @@ const ExpertiseAccordion = () => {
     const [active, setActive] = useState(0);
 
     return (
-        <div className="w-full max-w-7xl mx-auto mt-12 md:mt-20 px-6 md:px-10 lg:px-0">
+        <div className="w-full max-w-7xl mx-auto mt-12 md:mt-20 px-4 md:px-10 lg:px-0">
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
                 <div className="w-8 lg:w-16 h-[1px] bg-white/20"></div>
                 <span className="font-space uppercase tracking-[0.2em] text-xs lg:text-sm text-gray-500 font-bold">Strategic Approach</span>
                 <div className="w-8 lg:w-16 h-[1px] bg-white/20 lg:hidden"></div>
             </div>
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full h-[550px] lg:h-[400px]">
+            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full h-[680px] md:h-[600px] lg:h-[400px]">
                 {expertiseData.map((exp, idx) => {
                     const isActive = active === idx;
                     return (
@@ -134,7 +134,7 @@ const ExpertiseAccordion = () => {
                                 </AnimatePresence>
 
                                 <h3
-                                    className={`absolute left-8 lg:left-22 bottom-10 font-tanker text-3xl lg:text-4xl text-white tracking-widest origin-bottom-left -rotate-90 hidden lg:block transition-all duration-500 whitespace-nowrap ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-300'}`}
+                                    className={`absolute left-8 lg:left-[5.5rem] bottom-10 font-tanker text-3xl lg:text-4xl text-white tracking-widest origin-bottom-left -rotate-90 hidden lg:block transition-all duration-500 whitespace-nowrap ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100 delay-300'}`}
                                 >
                                     {exp.title}
                                 </h3>
