@@ -42,29 +42,28 @@ const reveal: Variants = {
 
 
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
-// ─── EXPERTISE ACCORDION DATA & COMPONENT ──────────────────────────────────────
 const expertiseData = [
     {
-        title: "UX/UI Strategy",
+        title: "UX/UI Design",
         icon: "✦",
-        desc: "Crafting intuitive and human-centered digital experiences from ground zero.",
-        skills: ["User Research", "Wireframing", "Interaction Design", "Prototyping"],
+        desc: "Designing intuitive, user-centered digital experiences that solve real problems.",
+        skills: ["User Research", "Personas", "Wireframing", "Prototyping", "Usability Testing"],
         color: "from-yellow-400/20 to-orange-500/5",
         accent: "text-yellow-400"
     },
     {
-        title: "Engineering",
-        icon: "⚡",
-        desc: "Translating pixel-perfect designs into high-performance, robust codebases.",
-        skills: ["React & Next.js", "Tailwind CSS", "Responsive Architecture", "Redux State"],
+        title: "Design Tools",
+        icon: "🎨",
+        desc: "Creating modern, high-fidelity interfaces and interactive prototypes.",
+        skills: ["Figma", "Framer", "Canva", "Interactive Prototyping", "Design Systems"],
         color: "from-blue-400/20 to-cyan-500/5",
         accent: "text-blue-400"
     },
     {
-        title: "Systemization",
-        icon: "✿",
-        desc: "Building scalable and consistent visual languages for complex apps.",
-        skills: ["Design Systems", "Component Libraries", "Agile Methodology", "No-Code Dev"],
+        title: "Development",
+        icon: "⚡",
+        desc: "Bridging design and development with clean, responsive implementation knowledge.",
+        skills: ["HTML", "CSS", "Tailwind CSS", "React Basics", "Responsive Design"],
         color: "from-pink-400/20 to-rose-500/5",
         accent: "text-pink-400"
     }
