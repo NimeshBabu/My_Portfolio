@@ -23,15 +23,15 @@ const projects = [
             "/Nexorabiopharma.png",
         link: "/case-study/Nexorabiopharma",
     },
-    // {
-    //     title: "Analytics UX Overhaul",
-    //     impact: "Reduced cognitive load through better hierarchy.",
-    //     process: "UX Audit · Wireframing",
-    //     timeline: "2025",
-    //     image:
-    //         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200",
-    //     link: "/case-study/analytics",
-    // },
+    {
+        title: "Mobile App UI Design System",
+        impact: "Comprehensive design system enabling rapid prototyping and cohesive user experiences.",
+        process: "UI Design · Design System",
+        timeline: "2025",
+        image:
+            "/MobileUIDesignMockup.png",
+        link: "/case-study/mobile-app-ui",
+    },
     {
         title: "Color Harmony Generator",
         impact: "Fast, elegant app providing precise palettes using local geometric logic.",
