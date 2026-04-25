@@ -41,6 +41,15 @@ const projects = [
             "/ColorHarmony.png",
         link: "/case-study/colorharmony",
     },
+    {
+        title: "DeshTrip Landing Page UI",
+        impact: "Clean, vibrant landing page design to facilitate web development learning and master Figma layouts.",
+        process: "UI Design · Collaborative Learning",
+        timeline: "2025",
+        image:
+            "/DeshtripMockup.png",
+        link: "/case-study/deshtrip",
+    },
 ]
 
 const reveal: Variants = {
@@ -62,18 +71,18 @@ export default function AllProjects() {
             <Navbar />
             <main className="pt-32 pb-16 px-6 md:px-10 w-full">
                 <div className="max-w-7xl mx-auto">
-                    
+
                     {/* HEADER */}
                     <div className="mb-16">
-                        
-                        
+
+
                         <motion.div
                             initial="hidden"
                             animate="visible"
                             variants={reveal}
                             custom={0}
                         >
-                            <h1 
+                            <h1
                                 className="font-tanker text-4xl md:text-6xl tracking-wide bg-clip-text text-transparent leading-tight inline-block"
                                 style={{
                                     backgroundImage:
