@@ -50,6 +50,15 @@ const projects = [
             "/DeshtripMockup.png",
         link: "/case-study/deshtrip",
     },
+    {
+        title: "School Bus Tracker UI",
+        impact: "Comprehensive UI design to learn website design principles and Figma layout structures.",
+        process: "UI Design · Collaborative Learning",
+        timeline: "2025",
+        image:
+            "/School Bus Tracker/Hero Screnn.png",
+        link: "/case-study/school-bus-tracker",
+    },
 ]
 
 const reveal: Variants = {
