@@ -5,13 +5,13 @@ import Link from "next/link"
 
 const projects = [
     {
-        title: "GoCart",
-        impact: "Scalable multi-vendor platform featuring frictionless checkout and premium layouts.",
-        process: "E-Commerce · UI/UX Design",
+        title: "School Bus Tracker UI",
+        impact: "Comprehensive UI design to learn website design principles and Figma layout structures.",
+        process: "UI Design · Collaborative Learning",
         timeline: "2025",
         image:
-            "/Gocart.png",
-        link: "/case-study/gocart",
+            "/School Bus Tracker/Hero Screnn.png",
+        link: "/case-study/school-bus-tracker",
     },
     {
         title: "Nexora Biopharma",
