@@ -5,15 +5,6 @@ import Link from "next/link"
 
 const projects = [
     {
-        title: "School Bus Tracker UI",
-        impact: "Comprehensive UI design to learn website design principles and Figma layout structures.",
-        process: "UI Design · Collaborative Learning",
-        timeline: "2025",
-        image:
-            "/School Bus Tracker/Hero Screnn.png",
-        link: "/case-study/school-bus-tracker",
-    },
-    {
         title: "Nexora Biopharma",
         impact: "Reduced user search time by 45% with intelligent rendering and clean architecture.",
         process: "Product Strategy · Interaction Design",
@@ -30,15 +21,6 @@ const projects = [
         image:
             "/MobileUIDesignMockup.png",
         link: "/case-study/mobile-app-ui",
-    },
-    {
-        title: "Color Harmony Generator",
-        impact: "Fast, elegant app providing precise palettes using local geometric logic.",
-        process: "User Flows · Prototyping",
-        timeline: "2025",
-        image:
-            "/ColorHarmony.png",
-        link: "/case-study/colorharmony",
     },
 ]
 

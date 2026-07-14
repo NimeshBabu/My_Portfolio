@@ -12,17 +12,14 @@ interface Skill {
 
 const skills: Skill[] = [
     { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", color: "#F24E1E" },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", color: "#F7DF1E" },
-    { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", color: "#61DAFB" },
-    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", color: "#3178C6" },
-    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", color: "#CCCCCC" },
     { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", color: "#E34F26" },
     { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", color: "#1572B6" },
-    { name: "Tailwind", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4", color: "#06B6D4" },
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", color: "#3776AB" },
     { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", color: "#F05032" },
     { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", color: "#CCCCCC" },
     { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg", color: "#007ACC" },
+    { name: "Photoshop", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg", color: "#31A8FF" },
+    { name: "Illustrator", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-original.svg", color: "#FF9A00" },
+    { name: "Canva", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg", color: "#00C4CC"},
 ]
 
 const TOTAL = skills.length
@@ -44,10 +41,10 @@ const reveal: Variants = {
 // ─── COMPONENT ────────────────────────────────────────────────────────────────
 const expertiseData = [
     {
-        title: "UX/UI Design",
+        title: "Design",
         icon: "✦",
         desc: "Designing intuitive, user-centered digital experiences that solve real problems.",
-        skills: ["User Research", "Personas", "Wireframing", "Prototyping", "Usability Testing"],
+        skills: ["User Flows", "Wireframing", "Prototyping", "Branding", "Visual Design"],
         color: "from-yellow-400/20 to-orange-500/5",
         accent: "text-yellow-400"
     },
@@ -55,7 +52,7 @@ const expertiseData = [
         title: "Design Tools",
         icon: "🎨",
         desc: "Creating modern, high-fidelity interfaces and interactive prototypes.",
-        skills: ["Figma", "Framer", "Canva", "Interactive Prototyping", "Design Systems"],
+        skills: ["Figma", "Framer", "Canva", "Photoshop", "Illustrator", "Interactive Prototyping", "Design Systems"],
         color: "from-blue-400/20 to-cyan-500/5",
         accent: "text-blue-400"
     },
@@ -63,7 +60,7 @@ const expertiseData = [
         title: "Development",
         icon: "⚡",
         desc: "Bridging design and development with clean, responsive implementation knowledge.",
-        skills: ["HTML", "CSS", "Tailwind CSS", "React Basics", "Responsive Design"],
+        skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Git", "GitHub", "VS Code", "Responsive Design"],
         color: "from-pink-400/20 to-rose-500/5",
         accent: "text-pink-400"
     }

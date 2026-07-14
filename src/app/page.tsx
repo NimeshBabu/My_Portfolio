@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import AboutMe from "@/components/AboutMe";
 import Projects from "@/components/Projects";
 import ContactSection from "@/components/ContactSection";
-import ServicesSection from "@/components/Services";
+import Gallery from "@/components/Gallery";
 import Skills from "@/components/Skills";
 import Navbar from "@/components/Navbar";
 
@@ -14,8 +14,8 @@ export default function Home() {
         <Hero />
         <AboutMe />
         <Projects />
+        <Gallery />
         <Skills />
-        <ServicesSection />
         <ContactSection />
       </main>
     </div>

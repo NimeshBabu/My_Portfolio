@@ -17,9 +17,9 @@ const SERVICES = [
     },
     {
         id: "service-3",
-        title: "Web Design / Frontend Development",
+        title: "Graphics Designing",
         description:
-            "Building responsive websites and web apps with HTML, CSS, JavaScript, and React.",
+            "Creating visually appealing graphics for various platforms using tools like Figma, Photoshop, and Illustrator.",
     },
     {
         id: "service-4",

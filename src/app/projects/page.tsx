@@ -6,15 +6,6 @@ import Navbar from "@/components/Navbar"
 
 const projects = [
     {
-        title: "GoCart",
-        impact: "Scalable multi-vendor platform featuring frictionless checkout and premium layouts.",
-        process: "E-Commerce · UI/UX Design",
-        timeline: "2025",
-        image:
-            "/Gocart.png",
-        link: "/case-study/gocart",
-    },
-    {
         title: "Nexora Biopharma",
         impact: "Reduced user search time by 45% with intelligent rendering and clean architecture.",
         process: "Product Strategy · Interaction Design",
@@ -32,15 +23,7 @@ const projects = [
             "/MobileUIDesignMockup.png",
         link: "/case-study/mobile-app-ui",
     },
-    {
-        title: "Color Harmony Generator",
-        impact: "Fast, elegant app providing precise palettes using local geometric logic.",
-        process: "User Flows · Prototyping",
-        timeline: "2025",
-        image:
-            "/ColorHarmony.png",
-        link: "/case-study/colorharmony",
-    },
+
     {
         title: "DeshTrip Landing Page UI",
         impact: "Clean, vibrant landing page design to facilitate web development learning and master Figma layouts.",
@@ -58,6 +41,24 @@ const projects = [
         image:
             "/School Bus Tracker/Hero Screnn.png",
         link: "/case-study/school-bus-tracker",
+    },
+    {
+        title: "GoCart",
+        impact: "Scalable multi-vendor platform featuring frictionless checkout and premium layouts.",
+        process: "E-Commerce · UI/UX Design",
+        timeline: "2025",
+        image:
+            "/Gocart.png",
+        link: "/case-study/gocart",
+    },
+    {
+        title: "Color Harmony Generator",
+        impact: "Fast, elegant app providing precise palettes using local geometric logic.",
+        process: "User Flows · Prototyping",
+        timeline: "2025",
+        image:
+            "/ColorHarmony.png",
+        link: "/case-study/colorharmony",
     },
 ]
 

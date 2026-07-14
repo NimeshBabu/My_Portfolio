@@ -75,15 +75,15 @@ const AboutMe: React.FC = () => {
                         className="font-space text-[16px] md:text-[20px] leading-relaxed text-gray-400 tracking-wide"
                         variants={itemVariants}
                     >
-                        an aspiring{" "}
-                        <span className="text-white">UI/UX Designer</span>{" "}
-                        passionate about creating intuitive, human-centered digital experiences. I combine design thinking with web development to build interfaces that are both meaningful and functional.
+                        I'm an aspiring{" "}
+                        <span className="text-white">UI/UX & Graphic Designer</span>{" "}
+                        passionate about creating intuitive digital experiences and visually compelling designs. I enjoy transforming ideas into meaningful interfaces, memorable brand identities, and engaging visual content that balances creativity, functionality, and aesthetics.
                         <br />
                         <br />
-                        Beyond design, I enjoy coding and building projects that turn ideas into real, interactive experiences.
+                        I believe great design is more than just how it looks—it's about solving problems, telling stories, and creating experiences that connect with people.
                         <br />
                         <br />
-                        "When I’m not designing, you’ll probably find me listening to music,
+                        "When I'm not designing, you'll probably find me listening to music,
                         sipping chiya, and sketching new ideas — because the best concepts often
                         start between playlists and tea breaks."
                     </motion.p>
