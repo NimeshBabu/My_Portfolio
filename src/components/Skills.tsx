@@ -52,7 +52,7 @@ const expertiseData = [
         title: "Design Tools",
         icon: "🎨",
         desc: "Creating modern, high-fidelity interfaces and interactive prototypes.",
-        skills: ["Figma", "Framer", "Canva", "Photoshop", "Illustrator", "Interactive Prototyping", "Design Systems"],
+        skills: ["Figma", "Canva", "Photoshop", "Illustrator", "Interactive Prototyping", "Design Systems"],
         color: "from-blue-400/20 to-cyan-500/5",
         accent: "text-blue-400"
     },
@@ -60,7 +60,7 @@ const expertiseData = [
         title: "Development",
         icon: "⚡",
         desc: "Bridging design and development with clean, responsive implementation knowledge.",
-        skills: ["HTML5", "CSS3", "React", "Next.js", "Tailwind CSS", "Git", "GitHub", "VS Code", "Responsive Design"],
+        skills: ["HTML5", "CSS3", "Tailwind CSS", "Git", "GitHub", "VS Code", "Responsive Design"],
         color: "from-pink-400/20 to-rose-500/5",
         accent: "text-pink-400"
     }
