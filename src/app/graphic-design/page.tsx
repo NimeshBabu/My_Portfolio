@@ -4,26 +4,24 @@ import React, { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react"
 import Link from "next/link"
-import { galleryItems, GalleryItem } from "@/data/galleryData"
+import Navbar from "@/components/Navbar"
+import { galleryItems } from "@/data/galleryData"
 
-export default function Gallery() {
+export default function GraphicDesignPage() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
-
-    // Landing page displays featured posters in 3-grid layout
-    const featuredItems = galleryItems.slice(0, 3)
 
     // Handle Lightbox navigation
     const handlePrev = useCallback(() => {
         if (selectedIndex === null) return
-        const newIndex = selectedIndex === 0 ? featuredItems.length - 1 : selectedIndex - 1
+        const newIndex = selectedIndex === 0 ? galleryItems.length - 1 : selectedIndex - 1
         setSelectedIndex(newIndex)
-    }, [selectedIndex, featuredItems])
+    }, [selectedIndex])
 
     const handleNext = useCallback(() => {
         if (selectedIndex === null) return
-        const newIndex = selectedIndex === featuredItems.length - 1 ? 0 : selectedIndex + 1
+        const newIndex = selectedIndex === galleryItems.length - 1 ? 0 : selectedIndex + 1
         setSelectedIndex(newIndex)
-    }, [selectedIndex, featuredItems])
+    }, [selectedIndex])
 
     const handleClose = () => {
         setSelectedIndex(null)
@@ -54,97 +52,71 @@ export default function Gallery() {
     }, [selectedIndex])
 
     return (
-        <section id="gallery" className="py-16 md:py-24 px-6 md:px-10 w-full text-white">
-            <div className="max-w-7xl mx-auto">
-                
-                {/* HEADER ROW */}
-                <div className="flex flex-col text-center md:text-left md:flex-row md:items-end md:justify-between mb-16 gap-8">
-                    <div>
-                        <h2
-                            className="font-tanker text-4xl text-center md:text-left md:text-6xl tracking-wide bg-clip-text text-transparent leading-tight"
-                            style={{
-                                backgroundImage:
-                                    "linear-gradient(0deg, rgba(99, 111, 164, 0.5) 0%, rgb(232, 203, 192) 80.7661%)",
-                            }}
-                        >
-                            Graphic Showcase
-                        </h2>
-                        <p className="text-gray-400 mt-6 text-center md:text-left font-space max-w-md text-base md:text-lg tracking-wide">
-                            A curated selection of poster designs, social media branding, and print assets focusing on visual balance, typography, and color harmony.
-                        </p>
+        <div className="min-h-screen text-white">
+            <Navbar />
+            <main className="pt-32 pb-24 px-6 md:px-10 w-full">
+                <div className="max-w-7xl mx-auto">
+
+                    {/* HEADER */}
+                    <div className="mb-12">
+                        <div>
+                            <h1
+                                className="font-tanker text-4xl md:text-6xl tracking-wide bg-clip-text text-transparent leading-tight"
+                                style={{
+                                    backgroundImage:
+                                        "linear-gradient(0deg, rgba(99, 111, 164, 0.5) 0%, rgb(232, 203, 192) 80.7661%)",
+                                }}
+                            >
+                                Graphic Design Showcase
+                            </h1>
+                            <p className="text-gray-400 mt-4 font-space max-w-xl text-base md:text-lg tracking-wide">
+                                Explore the full collection of posters, social media banners, brand identity, and print design assets crafted with precision and visual harmony.
+                            </p>
+                        </div>
                     </div>
 
-                    {/* View All Button */}
-                    <div className="flex items-end justify-center md:justify-end">
-                        <Link href="/graphic-design">
-                            <div className="relative inline-block group">
-                                {/* SVG Decorative Accent */}
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="29"
-                                    height="27"
-                                    fill="none"
-                                    className="absolute -top-5 -right-6 pointer-events-none group-hover:translate-x-1 group-hover:-translate-y-1 transition duration-300"
-                                >
-                                    <path
-                                        stroke="#F9D34C"
-                                        strokeLinecap="round"
-                                        strokeWidth="3"
-                                        d="M9.06 17.3c.084-1.992 3.262-3.654 4.461-4.963a145.227 145.227 0 0 1 5.708-5.896c1.038-1.012 2.874-2.345 3.018-3.823m-8.392 22.144c4.297-.43 8.438-1.897 12.804-1.897M2 2v9.958"
+                    {/* MASONRY GRID SHOWCASE */}
+                    <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-6 lg:space-y-8">
+                        {galleryItems.map((item, index) => (
+                            <motion.div
+                                key={item.id}
+                                layout
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.05 }}
+                                className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-[#24232A]/40 backdrop-blur-sm p-4 hover:border-yellow-400/40 hover:-translate-y-1.5 transition-all duration-500 shadow-xl"
+                                onClick={() => setSelectedIndex(index)}
+                            >
+                                {/* Image Container */}
+                                <div className={`relative overflow-hidden rounded-[1.5rem] ${item.aspectRatio} bg-black/10`}>
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                                        loading="lazy"
                                     />
-                                </svg>
 
-                                {/* Button */}
-                                <button className="px-7 py-3 rounded-2xl bg-yellow-400 text-black font-space font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_10px_40px_rgba(250,204,21,0.35)] active:scale-95">
-                                    View All Designs
-                                </button>
-                            </div>
-                        </Link>
+                                    {/* Hover Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                                        <div className="flex items-center justify-end">
+                                            <div className="w-9 h-9 rounded-full bg-yellow-400 text-black flex items-center justify-center shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                                <Maximize2 className="w-4 h-4" />
+                                            </div>
+                                        </div>
+                                        <h3 className="font-tanker text-2xl tracking-wide text-white mt-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                                            {item.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
-
-                {/* FEATURED MASONRY 3-GRID */}
-                <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 lg:gap-8 space-y-6 lg:space-y-8">
-                    {featuredItems.map((item, index) => (
-                        <motion.div
-                            key={item.id}
-                            layout
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, ease: "easeOut" }}
-                            className="break-inside-avoid relative group cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-[#24232A]/40 backdrop-blur-sm p-4 hover:border-yellow-400/40 hover:-translate-y-1.5 transition-all duration-500 shadow-xl"
-                            onClick={() => setSelectedIndex(index)}
-                        >
-                            {/* Image Container */}
-                            <div className={`relative overflow-hidden rounded-[1.5rem] ${item.aspectRatio} bg-black/10`}>
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                                    loading="lazy"
-                                />
-                                
-                                {/* Hover Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                    <div className="flex items-center justify-end">
-                                        <div className="w-9 h-9 rounded-full bg-yellow-400 text-black flex items-center justify-center shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                            <Maximize2 className="w-4 h-4" />
-                                        </div>
-                                    </div>
-                                    <h3 className="font-tanker text-2xl tracking-wide text-white mt-3 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                                        {item.title}
-                                    </h3>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
+            </main>
 
             {/* LIGHTBOX MODAL */}
             <AnimatePresence>
-                {selectedIndex !== null && (
+                {selectedIndex !== null && galleryItems[selectedIndex] && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -152,7 +124,7 @@ export default function Gallery() {
                         onClick={handleClose}
                         className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-lg"
                     >
-                        {/* Close button top right */}
+                        {/* Close button */}
                         <button
                             onClick={handleClose}
                             className="absolute top-6 right-6 z-55 w-12 h-12 rounded-full bg-white/5 border border-white/10 hover:border-yellow-400/30 flex items-center justify-center hover:scale-105 transition-all text-white hover:text-yellow-400"
@@ -166,15 +138,14 @@ export default function Gallery() {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.95, opacity: 0 }}
                             transition={{ type: "spring", stiffness: 350, damping: 28 }}
-                            onClick={(e) => e.stopPropagation()} // prevent modal close on clicking content
+                            onClick={(e) => e.stopPropagation()}
                             className="relative max-w-6xl w-full bg-[#16161A]/95 border border-white/15 rounded-[2.5rem] overflow-hidden grid grid-cols-1 md:grid-cols-12 max-h-[90vh] md:max-h-[85vh]"
                         >
-                            
-                            {/* Visual Display (Left / Top) */}
+                            {/* Visual Display */}
                             <div className="relative md:col-span-7 bg-black/40 flex items-center justify-center min-h-[300px] md:min-h-0 md:h-[80vh] overflow-hidden p-6">
                                 <img
-                                    src={featuredItems[selectedIndex].image}
-                                    alt={featuredItems[selectedIndex].title}
+                                    src={galleryItems[selectedIndex].image}
+                                    alt={galleryItems[selectedIndex].title}
                                     className="max-w-full max-h-[50vh] md:max-h-[70vh] object-contain rounded-xl shadow-2xl"
                                 />
 
@@ -201,7 +172,7 @@ export default function Gallery() {
                                 </div>
                             </div>
 
-                            {/* Details (Right / Bottom) */}
+                            {/* Details Column */}
                             <div className="md:col-span-5 p-8 md:p-10 flex flex-col justify-between overflow-y-auto max-h-[40vh] md:max-h-full border-t md:border-t-0 md:border-l border-white/10">
                                 <div>
                                     {/* Title */}
@@ -212,19 +183,19 @@ export default function Gallery() {
                                                 "linear-gradient(0deg, rgba(99, 111, 164, 0.5) 0%, rgb(232, 203, 192) 80%)",
                                         }}
                                     >
-                                        {featuredItems[selectedIndex].title}
+                                        {galleryItems[selectedIndex].title}
                                     </h3>
 
                                     {/* Description */}
                                     <p className="font-space text-gray-400 text-sm md:text-base leading-relaxed mb-6">
-                                        {featuredItems[selectedIndex].description}
+                                        {galleryItems[selectedIndex].description}
                                     </p>
 
                                     {/* Tools Used */}
                                     <div className="mb-6">
                                         <h4 className="font-space text-xs tracking-wider text-gray-500 uppercase mb-3">Tools Used</h4>
                                         <div className="flex flex-wrap gap-2">
-                                            {featuredItems[selectedIndex].tools.map((tool) => (
+                                            {galleryItems[selectedIndex].tools.map((tool) => (
                                                 <span
                                                     key={tool}
                                                     className="font-space text-xs px-3.5 py-1.5 rounded-xl bg-white/5 border border-white/10 text-gray-300"
@@ -240,7 +211,7 @@ export default function Gallery() {
                                 <div className="flex items-center justify-between text-xs text-gray-500 font-space mt-6 border-t border-white/5 pt-4">
                                     <span>Use ← and → arrow keys to navigate</span>
                                     <span>
-                                        {selectedIndex + 1} / {featuredItems.length}
+                                        {selectedIndex + 1} / {galleryItems.length}
                                     </span>
                                 </div>
                             </div>
@@ -248,7 +219,6 @@ export default function Gallery() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section>
+        </div>
     )
 }
-
