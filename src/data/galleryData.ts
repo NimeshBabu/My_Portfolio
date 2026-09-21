@@ -9,6 +9,30 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
     {
+        id: "krishna-poster",
+        title: "Krishna - Cosmic Consciousness",
+        description: "A dynamic mythological concept artwork depicting Lord Krishna with a powerful dark-mode aesthetic, cosmic energy portal background, and bold Sanskrit & English typography.",
+        image: "/Graphic Design/Krishna.png",
+        tools: ["Photoshop"],
+        aspectRatio: "aspect-[4/5]",
+    },
+    {
+        id: "glowing-poster",
+        title: "Follow The Glow Poster",
+        description: "An atmospheric surreal artwork exploring light emission, typography hierarchy, and ethereal mood composition in misty outdoor environments.",
+        image: "/Graphic Design/Glowing.png",
+        tools: ["Photoshop"],
+        aspectRatio: "aspect-[4/5]",
+    },
+    {
+        id: "bitchari-poster",
+        title: "Bitchari Pop Art Poster",
+        description: "A bold retro pop-art poster design combining dual-language typography, halftone texture effects, and iconic character imagery to celebrate pop culture aesthetics.",
+        image: "/Graphic Design/Bitichari3.png",
+        tools: ["Photoshop"],
+        aspectRatio: "aspect-[4/5]",
+    },
+    {
         id: "dreaming-poster",
         title: "Surreal Dreaming Poster",
         description: "An artistic poster concept blending dreamy visuals, atmospheric lighting, and expressive color palettes to evoke creative emotion and narrative depth.",
@@ -48,7 +72,7 @@ export const galleryItems: GalleryItem[] = [
         tools: ["Photoshop"],
         aspectRatio: "aspect-[3/4]",
     },
-        {
+    {
         id: "coffee-post",
         title: "Aesthetic Coffee Post",
         description: "A minimal and warm Instagram post design created to evoke comfort. Highlights typographic hierarchy and clean vector illustration elements for modern café branding.",
@@ -64,7 +88,6 @@ export const galleryItems: GalleryItem[] = [
         tools: ["Photoshop"],
         aspectRatio: "aspect-[4/5]",
     },
-
     {
         id: "food-design",
         title: "Gourmet Banner Design",
@@ -82,3 +105,4 @@ export const galleryItems: GalleryItem[] = [
         aspectRatio: "aspect-[1/1.414]",
     },
 ]
+
